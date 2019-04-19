@@ -1,35 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 布局文件 />采用线性布局-->
-<!--第一层界面背景部分：控件大小和父布局一样、布局纵向排列、控件自身上的内容位置为居中-->
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".SigninActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".loginActivity"
-    android:orientation="vertical"
-    android:background="@drawable/login"
-    android:gravity="center">
+    android:background="@drawable/signin">
     <!--第二层用户名密码输入部分：与父布局同宽，高由内容决定、内边距分别为280和20-->
     <LinearLayout
+        android:id="@+id/layout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="350dp"
         android:gravity="center"
-        android:orientation="vertical"
-        android:paddingTop="280dp"
-        android:paddingBottom="20dp">
+        android:orientation="vertical">
         <!--第三层用户名输入部分：布局横向排列-->
+        <!--用户名输入框部分-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal">
-
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:background="@drawable/user"/>
+                android:background="@drawable/user" />
             <!--第四层用户名输入框和黑线部分：与图标部分距离为10，布局纵向排列-->
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -47,16 +42,15 @@
                     android:textColorHint="#a3f1cdd3"
                     android:textSize="20sp"
                     android:textStyle="italic" />
-                <!--输入框-->
+                <!--一根黑线-->
                 <View
                     android:layout_width="229dp"
                     android:layout_height="1.5dp"
                     android:layout_marginBottom="5dp"
                     android:background="#000000"></View>
-                <!--一根黑线-->
             </LinearLayout>
         </LinearLayout>
-        <!--密码输入框-->
+        <!--密码输入框部分-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -65,7 +59,7 @@
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:background="@drawable/key"/>
+                android:background="@drawable/key" />
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -90,40 +84,50 @@
                     android:background="#000000"></View>
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-    <!--第二层按钮部分：为了使注释部分置于屏幕底部，设置高为0，
-           权重为1==剩余空间全部分配给这一控件-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:orientation="horizontal">
-        <Button
-            android:id="@+id/btn_login"
-            android:layout_width="123dp"
-            android:layout_height="39dp"
-            android:text="@string/login"
-            android:background="#a20cf7d8"/>
-        <Button
-            android:id="@+id/btn_signin"
-            android:layout_width="123dp"
-            android:layout_height="39dp"
-            android:layout_marginLeft="40dp"
-            android:text="@string/signin"
-            android:background="#a20cf7d8"/>
-    </LinearLayout>
-    <!--第二层注解部分-->
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
-            android:layout_width="wrap_content"
+        <!--再次输入密码部分-->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#d212a27f"
-            android:text="@string/about"
-            android:textStyle="italic"
-            />
+            android:gravity="center"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/key" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical">
+                <EditText
+                    android:id="@+id/passwordAgin"
+                    android:layout_width="229dp"
+                    android:layout_height="41dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:hint="@string/hint_passwordAgin"
+                    android:inputType="textPassword"
+                    android:textColor="#FFC0CB"
+                    android:textColorHint="#a3f1cdd3"
+                    android:textSize="20sp"
+                    android:textStyle="italic" />
+                <View
+                    android:layout_width="229dp"
+                    android:layout_height="1.5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="#000000"></View>
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+    <!--注册按钮-->
+    <Button
+        android:id="@+id/btn_in"
+        android:layout_width="123dp"
+        android:layout_height="39dp"
+        android:layout_below="@+id/layout1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="#a20cf7d8"
+        android:text="@string/signin"
+        android:onClick="SignIn"/>
+</RelativeLayout>

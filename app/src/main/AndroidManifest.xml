@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- 整个项目的配置文件，四大组件在这里注册使用，包括应用程序的权限声明-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.test">
 
@@ -15,6 +16,12 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity android:name=".SigninActivity">
+        </activity>
+
+        <activity android:name=".ClientMainActivity">
         </activity>
     </application>
 
